@@ -1,10 +1,9 @@
+function out = isAnyAirVoidInResultAirVoids(circlex_coordinates,circley_coordinates,result_circles_to_be_plotted_xcoordinates,result_circles_to_be_plotted_ycoordinates)
 %% Check if the generated void intersects with any of the already 
 % generated voids. The output of the function is either "True", 
 % indicating that the void does intersect with the other voids 
 % and should therefore be neglected, or "False", indicating that the void 
 % does not intersect with any void and should therefore be selected.
-function out = isAnyAirVoidInResultAirVoids(circlex_coordinates,circley_coordinates,result_circles_to_be_plotted_xcoordinates,result_circles_to_be_plotted_ycoordinates)
-
 out = false;
 
 if isempty(result_circles_to_be_plotted_ycoordinates) == 0

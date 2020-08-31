@@ -41,5 +41,5 @@ M = FindPolygons(A);
 
 %Generate the polygons and output two results: number of voids + void
 %content
-[counter_of_air_voids, air_void_content] = GenerateEllipseLogNormalDistribution(M,100,0.05);
+[counter_of_air_voids, air_void_content] = GenerateRandomPolygonVoid(M,0, 0.6,1.5,6,0.05,7);
 %

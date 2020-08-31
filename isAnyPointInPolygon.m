@@ -1,11 +1,10 @@
+function out = isAnyPointInPolygon(circlex_coordinates,circley_coordinates,PS)
 %% Check if the generated void intersects with an aggregate. 
 % The output of the function is either "True", indicating that 
 % the void does intersect with the aggregates and should therefore 
 % be neglected, or "False" indicating that the void does not intersect 
 % with any aggregate and should therefore be run through 
 % the second void intersection check.
-function out = isAnyPointInPolygon(circlex_coordinates,circley_coordinates,PS)
-
 out = false;
 
 circle_vertices_polyshape = polyshape(circlex_coordinates,circley_coordinates);

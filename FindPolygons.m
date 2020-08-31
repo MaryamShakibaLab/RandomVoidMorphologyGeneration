@@ -1,20 +1,31 @@
-%% FindPolygons stores the coordinates connecting each particle
-% in order in a Matrix M
 function M = FindPolygons(A)
+%% Create an M matrix that contains all the x and y coordinates arranged in a way
+%  such that all polygones are distinguished from one another.
+% A is the array that contains the randomnly sorted x y coordinates
+% extracted from Autocad.
+% Begin by storing the first row of array A into M. Check for
+% the next line segment that shares endpoints with the first row.
+% Once this line segment has been identified, add it to M, then set the
+% coordinates pertaining to that row to be equal to 0 in the original
+% Matrix A. Repeat the process until all line segments that are connected
+% to each other are identified. Store these line segments into M such that
+% each polygone identified is distinguished from the previous one.
+%
+%% initiate parameters
+M=zeros(size(A,1),size(A,2));%initiate the Matrix M
 
-M=zeros(size(A,1),size(A,2));
-
+%% Store the first row of A into M
 for i=1:4
     M(1,i) = A(1,i);
     A(1,i) = 0;
 end
 
-count=1;
+count=1; %counter used to enumerate M's rows
 cagg=1;
-rum=1;
+rum=1; %counter used to skip over the rows whose coordinates are 0 in A
 
 %%
-
+%% Find M
 for i=1:size(A,1)
     while 1
         if (M(cagg,1)~=M(rum,3) || M(cagg,2)~=M(rum,4))
